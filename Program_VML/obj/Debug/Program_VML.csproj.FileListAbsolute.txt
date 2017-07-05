@@ -1,0 +1,11 @@
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.csprojResolveAssemblyReference.cache
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.Form1.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.Properties.Resources.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.csproj.GenerateResource.Cache
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.exe
+E:\Programming\C#\VML\Program_VML.exe.config
+E:\Programming\C#\VML\Program_VML.exe
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.Check.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.Main.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.Settings.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\Debug\Program_VML.TextCPP.resources

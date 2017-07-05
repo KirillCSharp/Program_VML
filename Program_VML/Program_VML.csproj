@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\cef.sdk.3.2987.1601\build\cef.sdk.props" Condition="Exists('..\packages\cef.sdk.3.2987.1601\build\cef.sdk.props')" />
+  <Import Project="..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0C3A42A-3B30-4E8C-8693-5D0209FD4D25}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Program_VML</RootNamespace>
+    <AssemblyName>Program_VML</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <OutputPath>..\..\Compiled\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7</LangVersion>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.16.21.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.21.0\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Scripting, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Scripting.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Scripting, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Scripting.Common.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.FileVersionInfo.4.3.0\lib\net46\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.StackTrace.4.3.0\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.4.2\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net462\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.3.0\lib\net46\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.3.0\lib\net46\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.4.3.0\lib\net46\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="WebKit.Interop">
+      <HintPath>..\..\..\WebKit\WebKit.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WebKitBrowser">
+      <HintPath>..\..\..\WebKit\WebKitBrowser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archiver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archiver.Designer.cs">
+      <DependentUpon>Archiver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Browser.cs" />
+    <Compile Include="calc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="calc.Designer.cs">
+      <DependentUpon>calc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chromium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chromium.Designer.cs">
+      <DependentUpon>Chromium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compiler.Designer.cs">
+      <DependentUpon>Compiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimer.Designer.cs">
+      <DependentUpon>FormTimer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HTML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HTML.Designer.cs">
+      <DependentUpon>HTML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IE.Designer.cs">
+      <DependentUpon>IE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotePad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotePad.Designer.cs">
+      <DependentUpon>NotePad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="notes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notes.Designer.cs">
+      <DependentUpon>notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Random.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Random.Designer.cs">
+      <DependentUpon>Random.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rates.Designer.cs">
+      <DependentUpon>rates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StopWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StopWatch.Designer.cs">
+      <DependentUpon>StopWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tic-tac-toe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tic-tac-toe.Designer.cs">
+      <DependentUpon>Tic-tac-toe.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archiver.resx">
+      <DependentUpon>Archiver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calc.resx">
+      <DependentUpon>calc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chromium.resx">
+      <DependentUpon>Chromium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compiler.resx">
+      <DependentUpon>Compiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimer.resx">
+      <DependentUpon>FormTimer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTML.resx">
+      <DependentUpon>HTML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IE.resx">
+      <DependentUpon>IE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotePad.resx">
+      <DependentUpon>NotePad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notes.resx">
+      <DependentUpon>notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Random.resx">
+      <DependentUpon>Random.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rates.resx">
+      <DependentUpon>rates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StopWatch.resx">
+      <DependentUpon>StopWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tic-tac-toe.resx">
+      <DependentUpon>Tic-tac-toe.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.AutocompleteItem.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.AutocompleteListView.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.AutocompleteMenu.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.AutoIndentEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.BaseBookmarks.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Bookmark.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Bookmarks.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Char.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ClearSelectedCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.CollapseFoldingMarker.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Command.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.CommandManager.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.CustomActionEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.DocumentMap.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.EncodingDetector.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ExpandFoldingMarker.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ExportToHTML.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ExportToRTF.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FastColoredTextBox.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FileTextSource.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FindForm.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FoldedAreaMarker.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FoldedBlockStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.FoldingDesc.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.GoToForm.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Hint.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.HintClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Hints.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.HotkeysEditorForm.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.HotkeysMapping.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.InsertCharCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.InsertTextCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Line.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LineInfo.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LineInsertedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LineNeededEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LinePushedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LineRemovedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.LinesAccessor.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.MacrosManager.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.MarkerStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.MethodAutocompleteItem.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.MultiRangeCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.PaintLineEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Place.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.PlatformType.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.PrintDialogSettings.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Range.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.RangeRect.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ReadOnlyStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.RemoveLinesCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ReplaceForm.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ReplaceMultipleTextCommand+ReplaceRange.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ReplaceMultipleTextCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ReplaceTextCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.RTFStyleDescriptor.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.RuleDesc.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Ruler.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SelectCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SelectedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SelectingEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SelectionStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ServiceColors.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ShortcutStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SnippetAutocompleteItem.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.Style.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.StyleVisualMarker.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SuggestItem.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SyntaxDescriptor.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.SyntaxHighlighter.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.TextChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.TextChangingEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.TextSource+TextChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.TextSource.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.TextStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.ToolTipNeededEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.UndoableCommand.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.UnfocusablePanel.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.VisualMarker.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.VisualMarkerEventArgs.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.WavyLineStyle.datasource" />
+    <None Include="Properties\DataSources\FastColoredTextBoxNS.WordWrapNeededEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.AutoCSelectionEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.BeforeModificationEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.ChangeAnnotationEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.CharAddedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Document.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.DoubleClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.DwellEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.HotspotClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.ILoader.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Indicator.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.IndicatorClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.IndicatorCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.IndicatorReleaseEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.InsertCheckEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Line.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.LineCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Margin.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.MarginClickEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.MarginCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Marker.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.MarkerCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.MarkerHandle.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.ModificationEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.NeedShownEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Scintilla.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.ScintillaReader.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Selection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.SelectionCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Ada.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Asm.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Batch.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+BlitzBasic.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Cpp.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Css.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Fortran.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+FreeBasic.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Html.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Json.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Lisp.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Lua.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Markdown.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Pascal.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Perl.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+PhpScript.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+PowerShell.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Properties.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+PureBasic.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Python.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+R.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Ruby.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Smalltalk.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Sql.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Vb.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+VbScript.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Verilog.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style+Xml.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.Style.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.StyleCollection.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.StyleNeededEventArgs.datasource" />
+    <None Include="Properties\DataSources\ScintillaNET.UpdateUIEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Attr.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.CDATASection.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.CharacterData.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Comment.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Document.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.DocumentFragment.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.DocumentImpl.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.DocumentType.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Element.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.EntityReference.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.NamedNodeMap.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Node.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.NodeList.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.ProcessingInstruction.datasource" />
+    <None Include="Properties\DataSources\WebKit.DOM.Text.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadFinishedEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadFinishedEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadReceiveDataEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadReceiveDataEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadStartedEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.DownloadStartedEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.FileDownloadBeginEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.FileDownloadBeginEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.CFDictionaryPropertyBag.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.CFDictionaryPropertyBagClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IAdviseSink.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IBindCtx.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDataObject.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMAttr.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCDATASection.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCharacterData.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMComment.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCSSRule.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCSSRuleList.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCSSStyleDeclaration.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCSSStyleSheet.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMCSSValue.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMDocument.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMDocumentFragment.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMDocumentType.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMElement.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMEntityReference.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMHTMLElement.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMHTMLInputElement.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMHTMLTextAreaElement.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMImplementation.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMNamedNodeMap.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMNode.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMNodeList.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMObject.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMProcessingInstruction.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMRange.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDOMText.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IDropTarget.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumFORMATETC.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumMoniker.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumSpellingGuesses.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumSTATDATA.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumString.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumTextMatches.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IEnumWebGrammarDetails.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IErrorLog.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IMoniker.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IPersist.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IPersistStream.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IPropertyBag.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IPropertyBag2.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IRunningObjectTable.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.ISequentialStream.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IStream.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebArchive.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebBackForwardList.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebCache.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebCookieManager.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebCoreStatistics.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDatabaseManager.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDataSource.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDocumentRepresentation.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDocumentView.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDownload.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebDownloadDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebEditingDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebError.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFormDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFormSubmissionListener.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFrame.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFrameLoadDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFrameLoadDelegatePrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFramePrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebFrameView.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebGeolocationPosition.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebGeolocationProvider.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebGrammarDetail.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebHistory.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebHistoryDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebHistoryItem.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebIBActions.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebIconDatabase.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebIconFetcher.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebIconFetcherDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebInspector.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebInvocation.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebJavaScriptCollector.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebKitStatistics.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebMethodSignature.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebMutableURLRequest.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebNavigationData.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebNotification.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebNotificationCenter.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebNotificationObserver.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebOpenPanelResultListener.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebPluginHalterDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebPolicyDecisionListener.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebPolicyDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebPreferences.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebResource.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebResourceLoadDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebScriptObject.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebScriptWorld.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebScrollBarDelegatePrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebScrollBarPrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebSecurityOrigin.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebSerializedJSValue.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebTextRenderer.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebUIDelegate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebUndoManager.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebUndoTarget.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLAuthenticationChallenge.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLAuthenticationChallengeSender.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLCredential.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLProtectionSpace.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLRequest.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebURLResponse.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebUserContentURLPattern.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebView.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebViewCSS.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebViewEditing.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebViewEditingActions.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebViewPrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebViewUndoableEditing.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.IWebWorkersPrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagBIND_OPTS2.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagDVTARGETDEVICE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagFORMATETC.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagLOGPALETTE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagPALETTEENTRY.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagPOINT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagPROPBAG2.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagRECT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagSIZE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagSTATDATA.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.tagSTATSTG.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.webArchive.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.webArchiveClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCache.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCacheClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCookieManager.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCookieManagerClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCoreStatistics.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebCoreStatisticsClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebDatabaseManager.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebDatabaseManagerClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebDownload.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebDownloadClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebError.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebErrorClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.webFrame.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.webFrameClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebGeolocationPosition.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebGeolocationPositionClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebHistory.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebHistoryClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebHistoryItem.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebHistoryItemClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebIconDatabase.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebIconDatabaseClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebJavaScriptCollector.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebJavaScriptCollectorClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebKitStatistics.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebKitStatisticsClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebMutableURLRequest.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebMutableURLRequestClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebNotificationCenter.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebNotificationCenterClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebPreferences.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebPreferencesClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebScriptWorld.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebScriptWorldClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebScrollBar.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebScrollBarClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebSerializedJSValue.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebSerializedJSValueClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebTextRenderer.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebTextRendererClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLCredential.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLCredentialClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLProtectionSpace.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLProtectionSpaceClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLRequest.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLRequestClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLResponse.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebURLResponseClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebUserContentURLPattern.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebUserContentURLPatternClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebView.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebViewClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebWorkersPrivate.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.WebWorkersPrivateClass.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._BYTE_BLOB.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._COAUTHIDENTITY.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._COAUTHINFO.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._COSERVERINFO.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._FILETIME.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._FLAGGED_BYTE_BLOB.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._GDI_OBJECT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._LARGE_INTEGER.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._POINTL.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._RemotableHandle.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._remoteMETAFILEPICT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._STGMEDIUM_UNION.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._ULARGE_INTEGER.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userBITMAP.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userCLIPFORMAT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userFLAG_STGMEDIUM.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHBITMAP.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHENHMETAFILE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHGLOBAL.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHMETAFILE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHMETAFILEPICT.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userHPALETTE.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop._userSTGMEDIUM.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IAdviseSink_0002.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IAdviseSink_0003.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0001.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0003.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0004.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0005.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0006.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0007.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0008.datasource" />
+    <None Include="Properties\DataSources\WebKit.Interop.__MIDL_IWinTypes_0009.datasource" />
+    <None Include="Properties\DataSources\WebKit.NewWindowCreatedEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.NewWindowCreatedEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.NewWindowRequestEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.NewWindowRequestEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\WebKit.WebKitBrowser.datasource" />
+    <None Include="Properties\DataSources\WebKit.WebKitBrowserErrorEventArgs.datasource" />
+    <None Include="Properties\DataSources\WebKit.WebKitBrowserErrorEventHandler.datasource" />
+    <None Include="Properties\DataSources\WebKit.WebKitDownload.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Properties\DataSources\1.jpg" />
+    <Content Include="Properties\DataSources\2.jpg" />
+    <Content Include="Resources\1.jpg" />
+    <Content Include="Resources\2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.sdk.3.2987.1601\build\cef.sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.sdk.3.2987.1601\build\cef.sdk.props'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.targets')" />
+</Project>
