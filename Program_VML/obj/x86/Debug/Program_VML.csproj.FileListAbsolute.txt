@@ -26,3 +26,4 @@ E:\Programming\C#\VML\Compiled\Program_VML.pdb
 E:\Programming\C#\VML\Program_VML\Compiled\Program_VML.exe.config
 E:\Programming\C#\VML\Program_VML\Compiled\Program_VML.exe
 E:\Programming\C#\VML\Program_VML\Compiled\Program_VML.pdb
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.Conf.resources

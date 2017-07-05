@@ -145,13 +145,13 @@
             this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button16.FlatAppearance.BorderSize = 0;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button16.ForeColor = System.Drawing.Color.Black;
             this.button16.Location = new System.Drawing.Point(308, 133);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(145, 111);
             this.button16.TabIndex = 15;
-            this.button16.Text = "Обновление программы";
+            this.button16.Text = "Конфигурация компьютера";
             this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -342,7 +342,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(145, 111);
             this.button11.TabIndex = 27;
-            this.button11.Text = "Компилятор кода C#";
+            this.button11.Text = "О программе";
             this.button11.UseVisualStyleBackColor = false;
             // 
             // Main
