@@ -105,7 +105,7 @@ namespace Program_VML
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel1.LinkVisited = true;
-            Process.Start("http://google.com");
+            Process.Start("https://github.com/KirillCSharp/Program_VML");
         }
 
         private void button1_Click_1(object sender, EventArgs e)
