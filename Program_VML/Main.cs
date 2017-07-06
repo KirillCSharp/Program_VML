@@ -135,5 +135,11 @@ namespace Program_VML
             var f = new Conf();
             f.Show();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            var f = new About();
+            f.Show();
+        }
     }
 }
