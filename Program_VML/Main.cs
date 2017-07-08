@@ -141,5 +141,11 @@ namespace Program_VML
             var f = new About();
             f.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var f = new NotePadHTML();
+            f.Show();
+        }
     }
 }

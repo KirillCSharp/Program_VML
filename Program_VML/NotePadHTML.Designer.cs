@@ -1,6 +1,6 @@
 ﻿namespace Program_VML
 {
-    partial class Compiler
+    partial class NotePadHTML
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Compiler
+            // NotePadHTML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 292);
-            this.Name = "Compiler";
-            this.Text = "Compiler";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Compiler_FormClosing);
-            this.Load += new System.EventHandler(this.Compiler_Load);
+            this.ClientSize = new System.Drawing.Size(512, 287);
+            this.Name = "NotePadHTML";
+            this.Text = "NotePadHTML";
+            this.Load += new System.EventHandler(this.NotePadHTML_Load);
             this.ResumeLayout(false);
 
         }

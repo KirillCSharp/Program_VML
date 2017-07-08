@@ -253,8 +253,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(145, 111);
             this.button6.TabIndex = 25;
-            this.button6.Text = "Компилятор кода C#";
+            this.button6.Text = "HTML редактор";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 

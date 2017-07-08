@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FastColoredTextBoxNS;
 
 namespace Program_VML
 {
@@ -17,7 +18,10 @@ namespace Program_VML
         public Compiler()
         {
             InitializeComponent();
+            textBox1.KeyDown += textBox1_KeyDown;
         }
+
+        FastColoredTextBox textBox1 = new FastColoredTextBox();
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -63,7 +67,7 @@ namespace Program_VML
                     Properties.Settings.Default.Save();
                 }
             }
-            else if (e.KeyCode == Keys.F2)
+            else if (e.KeyCode == Keys.S && e.Control)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 if (sfd.ShowDialog() == DialogResult.OK)
@@ -72,7 +76,7 @@ namespace Program_VML
                     System.IO.File.WriteAllText(sfd.FileName, textBox1.Text);
                 }
             }
-            else if (e.KeyCode == Keys.F3)
+            else if (e.KeyCode == Keys.O && e.Control)
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -83,8 +87,13 @@ namespace Program_VML
             }
         }
 
+
+
         private void Compiler_Load(object sender, EventArgs e)
         {
+            Controls.Add(textBox1);
+            textBox1.Language = Language.CSharp;
+            textBox1.Dock = DockStyle.Fill;
             textBox1.Text = Properties.Settings.Default.example;
         }
 
