@@ -147,5 +147,58 @@ namespace Program_VML
             var f = new NotePadHTML();
             f.Show();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            var f = new Code();
+            f.Show();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            var f = new Time();
+            f.Show();
+        }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            var f = new StopWatch();
+            f.Show();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            var f = new FormTimer();
+            f.Show();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            var f = new HTML();
+            f.Show();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            var f = new NotePadHTML();
+            f.Show();
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            var f = new NotePad();
+            f.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            var f = new Compiler();
+            f.Show();
+        }
     }
 }

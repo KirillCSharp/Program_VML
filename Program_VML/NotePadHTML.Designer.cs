@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 287);
             this.Name = "NotePadHTML";
-            this.Text = "NotePadHTML";
+            this.Text = "HTML редактор";
             this.Load += new System.EventHandler(this.NotePadHTML_Load);
             this.ResumeLayout(false);
 

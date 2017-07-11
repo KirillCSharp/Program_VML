@@ -29,3 +29,6 @@ E:\Programming\C#\VML\Program_VML\Compiled\Program_VML.pdb
 E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.Conf.resources
 E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.About.resources
 E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.NotePadHTML.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.FCTB.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.Code.resources
+E:\Programming\C#\VML\Program_VML\Program_VML\obj\x86\Debug\Program_VML.Time.resources

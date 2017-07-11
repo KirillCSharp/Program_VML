@@ -18,8 +18,8 @@ namespace Program_VML
             InitializeComponent();
         }
 
-        FastColoredTextBox tb = new FastColoredTextBox();
-
+        public FastColoredTextBox tb = new FastColoredTextBox();
+        
         private void NotePadHTML_Load(object sender, EventArgs e)
         {
             Controls.Add(tb);

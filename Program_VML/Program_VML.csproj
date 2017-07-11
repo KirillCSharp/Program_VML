@@ -186,13 +186,6 @@
     <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="WebKit.Interop">
-      <HintPath>..\..\..\WebKit\WebKit.Interop.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="WebKitBrowser">
-      <HintPath>..\..\..\WebKit\WebKitBrowser.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.cs">
@@ -220,6 +213,12 @@
     <Compile Include="Chromium.Designer.cs">
       <DependentUpon>Chromium.cs</DependentUpon>
     </Compile>
+    <Compile Include="Code.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code.Designer.cs">
+      <DependentUpon>Code.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +230,12 @@
     </Compile>
     <Compile Include="Conf.Designer.cs">
       <DependentUpon>Conf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCTB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCTB.Designer.cs">
+      <DependentUpon>FCTB.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTimer.cs">
       <SubType>Form</SubType>
@@ -300,6 +305,12 @@
     <Compile Include="Tic-tac-toe.Designer.cs">
       <DependentUpon>Tic-tac-toe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time.Designer.cs">
+      <DependentUpon>Time.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,11 +323,17 @@
     <EmbeddedResource Include="Chromium.resx">
       <DependentUpon>Chromium.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code.resx">
+      <DependentUpon>Code.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compiler.resx">
       <DependentUpon>Compiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Conf.resx">
       <DependentUpon>Conf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCTB.resx">
+      <DependentUpon>FCTB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTimer.resx">
       <DependentUpon>FormTimer.cs</DependentUpon>
@@ -360,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tic-tac-toe.resx">
       <DependentUpon>Tic-tac-toe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time.resx">
+      <DependentUpon>Time.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FastColoredTextBoxNS.AutocompleteItem.datasource" />
